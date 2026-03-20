@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+
+body{
+    padding: 20px;
+    user-select: none;
+}
