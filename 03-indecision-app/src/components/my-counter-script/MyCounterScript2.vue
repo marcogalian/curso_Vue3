@@ -1,22 +1,25 @@
 <template>
-  <h1 class="text-xl font-bold">Hola Mundo</h1>
-  <h3 class="font-extralight">Counter: {{ counter }}</h3>
-  <h3 class="font-extralight">Square: {{ squareCounter }}</h3>
+  <h1 class="text-xl">Hola Mundo MyCounterScript2</h1>
+  <h3>Counter: {{ counter }}</h3>
+  <h3>Square: {{ squareCounter }}</h3>
 
-  <div>
-    <button class="px-3 py-1 rounded-md bg-green-600 cursor-pointer hover:bg-green-500 transition-colors duration-150" @click="counter++"><span class="font-bold">+1</span></button>
-    <button class="text-gray-200 px-3 py-1 rounded-md bg-red-600 cursor-pointer hover:bg-red-500 transition-colors duration-150" @click="counter--"><span class="font-bold">-1</span></button>
+  <div class="flex gap-3">
+    <button class="px-4 bg-green-500 rounded " @click="counter++">+1</button>
+    <button class="px-4 bg-blue-500 rounded " @click="counter--">-1</button>
   </div>
 </template>
 
-<script lang="ts" src="./MyCounterScript2.ts">
+<script lang="ts" setup>
+import { useCounter } from '../../composables/useCounter';
+
+interface Props {
+  value: number,
+}
+
+const props = defineProps<Props>()
+  
+  
+const {counter, squareCounter} = useCounter(2)
 
 </script>
 
-<style scoped>
-div {
-  width: 100px;
-  display: flex;
-  justify-content: space-between;
-}
-</style>
